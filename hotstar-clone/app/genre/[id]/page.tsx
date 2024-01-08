@@ -1,17 +1,36 @@
-type Props = {
-    params: {
-        id: string;
-    };
+import MoviesCarousel from "@/components/MoviesCarousel";
+import OpenAIAzureSuggestions from "@/components/OpenAIAzureSuggestions";
+import { getDiscoveremovies } from "@/lib/getMovies";
+
+
+async function GenrePage({
+    params: { id },
+    searchParams: { genre },
+}: {
+    params: { id: string };
     searchParams: {
         genre: string;
     };
-};
-// here we are displaying the name with the id of the search url. 
-function GenrePage({ params: { id }, searchParams: { genre } }: Props) {
+}) {
+    console.log(id);
+    const movies = await getDiscoveremovies(id);
+
+
     return (
-        <div>Welcomr to the GenrePage with id: {id} and name {genre}</div>
+        <div className="max-w-7xl mx-auto">
+            <div className=" flex flex-col space-y-5 mt-32 xl:mt-42">
+                <h1 className=" text-6xl font-bold px-10">Result for {genre}</h1>
+
+                {/* AZURE  AI suggestions */}
+                {/* <OpenAIAzureSuggestions term={genre} /> */}
+                {/* <AISuggestion term={genre} /> */}
+                <MoviesCarousel title={`genre`} movies={movies} isVertical />
+
+            </div>
+        </div>
+        // 3.19 completed
+
+
     )
 }
-// http://localhost:3000/genre/80?genre=alivin
-
 export default GenrePage

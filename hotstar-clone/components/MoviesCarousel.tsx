@@ -17,7 +17,7 @@ function MoviesCarousel({ title, movies, isVertical }: Props) {
         <div className="z-50">
             <h2 className="test-xl font-bold px-10 py-2">{title}</h2>
 
-            <div className={cn("flex space-x-4 overflow-scroll px-5 lg:px-10 py-5 scrollbar-hide", isVertical && "flex-col space-x-0 space-y-12")}>
+            <div className={cn("flex space-x-4 overflow_scroll px-5 lg:px-10 py-5 scrollbar-hide", isVertical && "flex-col space-x-0 space-y-12")}>
             {/* <div className="containerClasses"> */}
                 {isVertical
                     ? movies.map((movie) => (

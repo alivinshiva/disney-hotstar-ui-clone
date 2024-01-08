@@ -1,6 +1,4 @@
 import Image from 'next/image'
-
-import { Button } from "@/components/ui/button"
 import MoviesCarousel from '@/components/MoviesCarousel'
 import { getNowPlayingMovies, getPopularMovies, getTopRatedMovies, getUpcomingMovies } from '@/lib/getMovies';
 import CarouselBannerWrapper from '@/components/CarouselBannerWrapper';

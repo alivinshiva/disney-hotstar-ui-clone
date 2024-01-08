@@ -21,6 +21,21 @@ const config = {
       flex:{
         full:"0 0 100%",
       },
+      overflow:{
+        // overflow: "visible",
+        // overflow: "hidden",
+        // overflow: "clip",
+        // overflow: "scroll",
+        // overflow: "auto",
+        // overflow: "hidden visible",
+        
+        /* Global values */
+        // overflow: "inherit",
+        overflow_scroll: "initial",
+        // overflow: "revert",
+        // overflow: "revert-layer",
+        // overflow: "unset",
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
