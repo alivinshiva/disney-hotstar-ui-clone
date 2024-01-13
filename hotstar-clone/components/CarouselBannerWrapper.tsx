@@ -9,7 +9,6 @@ async function CarouselBannerWrapper({ id, keywords }: Props) {
     const movies = await getDiscoveremovies(id, keywords);
     return (
 
-        // <CarouselBanner movies={movies}/>
         <CarouselBanner movies={movies} />
     )
 

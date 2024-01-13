@@ -1,4 +1,4 @@
-import Image from 'next/image'
+import Image from 'next/image' 
 import MoviesCarousel from '@/components/MoviesCarousel'
 import { getNowPlayingMovies, getPopularMovies, getTopRatedMovies, getUpcomingMovies } from '@/lib/getMovies';
 import CarouselBannerWrapper from '@/components/CarouselBannerWrapper';
@@ -9,7 +9,6 @@ export default async function Home() {
   const nowPlaying = await getNowPlayingMovies();
   return (
     <main className="">
-      {/* <h1 >Lets build Hotstar</h1> */}
 
       <CarouselBannerWrapper/>
       <div className=' flex flex-col space-y-2 xl:-mt-48 '>

@@ -1,16 +1,13 @@
-import AISuggestion from "@/components/AISuggestion";
 import MoviesCarousel from "@/components/MoviesCarousel";
-import OpenAIAzureSuggestions from "@/components/OpenAIAzureSuggestions";
 import { getPopularMovies, getSearchedMovies } from "@/lib/getMovies";
 import { notFound } from "next/navigation";
-import { useRouter } from "next/navigation";
 
 type Props = {
     params: {
         term: string;
     }
 }
-async function SearchPage({params:{term}}:Props) {
+async function SearchPage({ params: { term } }: Props) {
     // this will redirect user to 404 if page not found.
     if (!term) notFound();
     // for cleaning the url. 
@@ -19,20 +16,17 @@ async function SearchPage({params:{term}}:Props) {
     // API call to get the Serached movies\
     const movies = await getSearchedMovies(termToUse)
     // API call to get the Popular movies
-    const popularMovies = await getPopularMovies()   
+    const popularMovies = await getPopularMovies()
     // console.log(props); 
 
-    return (       
+    return (
         <div className="max-w-7xl mx-auto">
-            {/* AZURE  AI suggestions */}
-            {/* <OpenAIAzureSuggestions term={term}/> */}
-            {/* Welcome to the search page {termToUse} */}
-        <div className=" flex flex-col space-y-4 mt-32 xl:mt-24">
-            <h1 className=" text-6xl font-bold px-10">Result for {termToUse}</h1>
-            <AISuggestion term={termToUse}/>
-            <MoviesCarousel title="Movies" movies={movies} isVertical/>
-            <MoviesCarousel title="You may also like" movies={popularMovies} />
-        </div>
+
+            <div className=" flex flex-col space-y-4 mt-32 xl:mt-24">
+                <h1 className=" text-6xl font-bold px-10">Result for {termToUse}</h1>
+                <MoviesCarousel title="Movies" movies={movies} isVertical />
+                <MoviesCarousel title="You may also like" movies={popularMovies} />
+            </div>
         </div>
     )
 }
