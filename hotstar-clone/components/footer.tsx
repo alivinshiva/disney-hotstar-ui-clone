@@ -1,24 +1,10 @@
+import React from 'react'
 import Image from 'next/image'
-import MoviesCarousel from '@/components/MoviesCarousel'
-import { getNowPlayingMovies, getPopularMovies, getTopRatedMovies, getUpcomingMovies } from '@/lib/getMovies';
-import CarouselBannerWrapper from '@/components/CarouselBannerWrapper';
 import avatarIMG from '../public/images/img-alivin.png'
-export default async function Home() {
-  const upcomingMovies = await getUpcomingMovies();
-  const topRatedMovies = await getTopRatedMovies();
-  const popularMovies = await getPopularMovies();
-  const nowPlaying = await getNowPlayingMovies();
-  return (
-    <main className="">
 
-      <CarouselBannerWrapper />
-      <div className=' flex flex-col space-y-2 xl:-mt-48 '>
-        <MoviesCarousel movies={upcomingMovies} title='Upcomming' />
-        <MoviesCarousel movies={topRatedMovies} title='Top Rated' />
-        <MoviesCarousel movies={popularMovies} title='Popular' />
-        <MoviesCarousel movies={nowPlaying} title='Now Playing' />
-      </div>
-      <footer >
+function footer() {
+  return (
+    <footer >
         <p className="text-base lg:text-xl md:text-xl text-gray-500 mt-4 mb-4 text-center">
           Made with  <strong className='text-red-500'> &hearts;</strong> by <strong>Alivin Shiva.</strong>
           <br />
@@ -58,6 +44,7 @@ export default async function Home() {
         </div>
 
       </footer>
-    </main>
   )
 }
+
+export default footer
